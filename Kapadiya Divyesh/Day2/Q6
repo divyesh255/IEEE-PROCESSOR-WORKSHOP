@@ -1,0 +1,17 @@
+module Q6(out,A);
+output out;
+input [3:0]A;
+wire notA3,notA2,notA0;
+wire and1,and2,and3;
+
+not n1(notA3,A[3]);
+not n2(notA2,A[2]);
+not n3(notA0,A[0]);
+
+and a1(and1,notA3,notA0);
+and a2(and2,notA3,A[2],A[1]);
+and a3(and3,A[3],notA2,A[0]);
+
+or o1(out,and1,and2,and3);
+
+endmodule
