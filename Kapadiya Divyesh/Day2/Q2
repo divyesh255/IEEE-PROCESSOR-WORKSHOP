@@ -1,0 +1,18 @@
+module Q2(P,D,A);
+output P,D;
+input [3:0]A;
+wire not_a3,not_a2,not_a1;
+wire and_1,and_2,and_3,and_4;
+
+not n1(not_a3,A[3]);
+not n2(not_a2,A[2]);
+not n3(not_a1,A[1]);
+
+and a1(and_1,not_a3,not_a2,A[1]);
+and a2(and_2,not_a2,A[1],A[0]);
+and a3(and_3,not_a3,A[2],A[0]);
+and a4(and_4,not_a1,A[2],A[0]);
+
+or o1(P,and_1,and_2,and_3,and_4);
+assign D = (~A[3]&~A[2]&A[1]&A[0])|(~A[3]&A[2]&A[1]&~A[0])|(A[3]&~A[2]&~A[1]&A[0])|(A[3]&A[2]&~A[1]&~A[0])|(A[3]&A[2]&A[1]&A[0]);
+endmodule
