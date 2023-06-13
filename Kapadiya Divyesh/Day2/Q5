@@ -1,0 +1,25 @@
+module Q4(Y,A,clk);
+output reg [6:0]Y;
+input [2:0]A;
+input clk;
+
+always @(posedge clk)
+begin
+if(A==3'b000)
+	Y <= 7'b0000000;
+else if(A==3'b001)
+	Y <= 7'b0000001;
+else if(A==3'b010)
+	Y <= 7'b0000011;
+else if(A==3'b011)
+	Y <= 7'b0000111;
+else if(A==3'b100)
+	Y <= 7'b0001111;
+else if(A==3'b101)
+	Y <= 7'b0011111;
+else if(A==3'b110)
+	Y <= 7'b0111111;
+else if(A==3'b111)
+	Y <= 7'b1111111;
+end
+endmodule
