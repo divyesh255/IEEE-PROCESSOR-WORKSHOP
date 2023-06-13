@@ -1,0 +1,11 @@
+/*
+Enjoy if...
+1. It is a sunny day (S) and there are no ants (~A).
+2. He sees a hummingbird (H).
+3. There are both ants (A) and ladybugs (L) present.
+*/
+module Q1(E,S,A,H,L);
+output E;
+input A,H,L,S;
+assign E = (S&~A)|H|(A&L);
+endmodule
